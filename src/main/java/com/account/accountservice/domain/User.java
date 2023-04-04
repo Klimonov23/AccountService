@@ -19,7 +19,7 @@ public class User {
 
     @NotNull
     @Length(min=6,max=40)
-    char[] password;
+    String password;
 
 
 }
