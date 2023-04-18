@@ -6,6 +6,6 @@ public enum Currency {
     EUR;
 
     public static Currency getDefault(){
-        return RUB;
+        return USD;
     }
 }
