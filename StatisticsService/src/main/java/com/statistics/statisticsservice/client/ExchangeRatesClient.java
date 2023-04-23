@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(url = "${rates.url}", name = "rates-client", fallback = ExchangeRatesClientFallback.class)
-public interface ExchangeRatesClient {
+public interface ExchangeRatesClient { //Feign - это декларативный HTTP клиент, для упрощения написания интеграций с различными АПИ.
 
     @RequestMapping(method = RequestMethod.GET, value = "/latest")
     ExchangeRateContainer getRates(@RequestParam("base") Currency base);
