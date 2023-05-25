@@ -33,7 +33,8 @@
     </dependencyManagement>
     <modules>
         <module>AccountService</module>
-        <module>StatisticsService</module>
+        <module>StatisticService</module>
+        <module>NotificationService</module>
     </modules>
 
 </project>
