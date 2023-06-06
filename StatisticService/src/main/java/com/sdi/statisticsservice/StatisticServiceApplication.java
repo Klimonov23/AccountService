@@ -1,5 +1,7 @@
 package com.sdi.statisticsservice;
 
+import com.sdi.statisticsservice.client.ExchangeRatesClient;
+import com.sdi.statisticsservice.domain.ExchangeRatesContainer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;

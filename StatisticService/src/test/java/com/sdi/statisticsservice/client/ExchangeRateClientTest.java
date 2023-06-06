@@ -24,7 +24,7 @@ public class ExchangeRateClientTest {
     @Test
     public void shouldRetrieveExchangeRates() {
 
-        ExchangeRatesContainer container = client.getRates(Currency.getBase());
+        ExchangeRatesContainer container = client.getRates();
 
         assertEquals(container.getDate(), LocalDate.now());
         assertEquals(container.getBase(), Currency.getBase());
@@ -39,7 +39,7 @@ public class ExchangeRateClientTest {
     public void shouldRetrieveExchangeRatesForSpecifiedCurrency() {
 
         Currency requestedCurrency = Currency.EUR;
-        ExchangeRatesContainer container = client.getRates(Currency.getBase());
+        ExchangeRatesContainer container = client.getRates();
 
         assertEquals(container.getDate(), LocalDate.now());
         assertEquals(container.getBase(), Currency.getBase());

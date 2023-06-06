@@ -6,9 +6,3 @@ spring:
       database: account-service
       uri: mongodb://localhost:27017/accounts
 
-rates:
-  url: http://data.fixer.io/api/latest
-  access_key: 73c249c05d3e82587f244ac32c9b962a
-
-server:
-  port: 8081

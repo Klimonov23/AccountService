@@ -8,6 +8,7 @@ import com.sdi.statisticsservice.domain.ExchangeRatesContainer;
 import com.sdi.statisticsservice.util.LocalDateTypeAdapter;
 import org.apache.http.client.fluent.Content;
 import org.apache.http.client.fluent.Request;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -21,14 +22,19 @@ public class ExchangeRatesClient {
     private static final Gson GSON=new GsonBuilder()
             .registerTypeAdapter(LocalDate.class, new LocalDateTypeAdapter())
             .create();
-    @Value("${rates.url}")
     private String url;
-    @Value("${rates.access_key}")
     private String access_key;
-    public ExchangeRatesContainer getRates(Currency base) {
+    @Autowired
+    ExchangeRatesClient(@Value("${rates.url}") String url,    @Value("${rates.access_key}") String access_key){
+        this.url=url;
+        this.access_key=access_key;
+    }
+
+    public ExchangeRatesContainer getRates() {
         Content getResult = null;
         try {
-            getResult= Request.Get(url+"?access_key="+access_key+"&symbols=USD,RUB,EUR.")
+            System.out.println(url+"?access_key="+access_key+"&symbols=USD,RUB,EUR");
+            getResult= Request.Get(url+"?access_key="+access_key+"&symbols=USD,RUB,EUR")
                     .execute().returnContent();
         }
         catch (IOException exception){
