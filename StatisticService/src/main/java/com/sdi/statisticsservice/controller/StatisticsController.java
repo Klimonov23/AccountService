@@ -43,9 +43,9 @@ public class StatisticsController {
         statisticsService.save(accountName, account);
     }
 
-    @GetMapping(path = "/rates")
-    public ResponseEntity<String> getCurrentRates(){
-        System.out.println(client.getRates().toString());
-        return  ResponseEntity.ok("Succes");
-    }
+//    @GetMapping(path = "/rates")
+//    public ResponseEntity<String> getCurrentRates(){
+//        System.out.println(client.getRates().toString());
+//        return  ResponseEntity.ok("Succes");
+//    }
 }
