@@ -5,4 +5,15 @@ spring:
       port: 27017
       database: account-service
       uri: mongodb://localhost:27017/accounts
+remind:
+  cron: 0 0 0 * * *
+  email:
+    text: "Hey, {0}! We''ve missed you here on Metrics. It''s time to check your budget statistics.\r\n\r\nCheers,\r\nMetrics team"
+    subject: Metrics reminder
 
+backup:
+  cron: 0 0 12 * * *
+  email:
+    text: "Howdy, {0}. Your account backup is ready.\r\n\r\nCheers,\r\nMetrics team"
+    subject: Metrics account backup
+    attachment: backup.json
