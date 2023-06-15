@@ -4,5 +4,14 @@ spring:
       host: localhost
       port: 27017
       database: account-service
-      uri: mongodb://localhost:27017/accounts
+  security:
+    user:
+      name: user
+      password: pass
+#security:
+#  basic:
+#    enabled: false
+#management:
+#  security:
+#    enabled: false
 

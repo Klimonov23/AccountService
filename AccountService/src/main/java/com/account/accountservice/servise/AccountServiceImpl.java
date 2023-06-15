@@ -36,6 +36,7 @@ public class AccountServiceImpl implements AccountService{
 
     @Override
     public Account createAccount(User user) {
+        log.info("createAccount");
         Account existing=repository.findByName(user.getUsername());
         Assert.isNull(existing,()-> String.format("User %s has already exist",user.getUsername()));
 

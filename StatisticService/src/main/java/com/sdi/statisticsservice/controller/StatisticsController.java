@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 import java.util.List;
 
-@Controller
+@RestController
 public class StatisticsController {
 
     private final StatisticsService statisticsService;
@@ -31,21 +31,21 @@ public class StatisticsController {
         return statisticsService.findByAccountName(principal.getName());
     }
 
-    @PreAuthorize("#oauth2.hasScope('server') or #accountName.equals('demo')")
+    //@PreAuthorize("#oauth2.hasScope('server') or #accountName.equals('demo')")
     @GetMapping(path = "/{accountName}")
     public List<DataPoint> getStatisticsByAccountName(@PathVariable String accountName) {
         return statisticsService.findByAccountName(accountName);
     }
 
-    @PreAuthorize("#oauth2.hasScope('server')")
+    //@PreAuthorize("#oauth2.hasScope('server')")
     @RequestMapping(value = "/{accountName}", method = RequestMethod.PUT)
     public void saveAccountStatistics(@PathVariable String accountName, @Valid @RequestBody Account account) {
         statisticsService.save(accountName, account);
     }
 
-//    @GetMapping(path = "/rates")
-//    public ResponseEntity<String> getCurrentRates(){
-//        System.out.println(client.getRates().toString());
-//        return  ResponseEntity.ok("Succes");
-//    }
+    @GetMapping(path = "/rates")
+    public ResponseEntity<String> getCurrentRates(){
+        System.out.println(client.getRates().toString());
+        return  ResponseEntity.ok("Succes");
+    }
 }

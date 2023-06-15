@@ -35,8 +35,9 @@ public class AccountController {
         service.saveChanges(principal.getName(), account);
     }
 
-    @PostMapping(path = "/")
-    public Account createNewAccount(@Valid @RequestBody User user) {
+    @RequestMapping(path = "/", method = RequestMethod.POST)
+    public Account createNewAccount(@RequestBody User user) {
+        System.out.println("enter");
         return service.createAccount(user);
     }
 }
